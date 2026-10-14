@@ -1,7 +1,7 @@
 ### IntelliJ IDEA ###
 out/
-!**/src/Program/**/out/
-!**/src/test/**/out/
+!**/src/Program/out/
+!**/src/test/out/
 .kotlin
 
 ### Eclipse ###
