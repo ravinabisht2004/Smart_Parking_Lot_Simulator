@@ -1,7 +1,7 @@
 
 package Program;
 
-import java.time.Duration;
+
 import java.util.Scanner;
 
 public class main {
@@ -27,9 +27,8 @@ public class main {
             System.out.println("3. View Parking Status");
             System.out.println("4. View Total Earnings");
             System.out.println("5. Exit Program");
-            int carEntryCount = 0;
-            int carExitCount = 0;
-            double tempFees;
+        
+        
             
             
 
@@ -41,10 +40,10 @@ public class main {
             switch (userInput) {
                 case 1 -> {
 
-                    if (availableSpace > 0 && occupied <= totalParking){
-                        carEntryCount ++;
-                        availableSpace = availableSpace - carEntryCount;
-                        occupied = occupied + carEntryCount;
+                    if (availableSpace > 0){
+                        availableSpace--;
+                        occupied++;
+                        System.out.println("Car Enter Successfully");
                         
                     }
                     else{
@@ -58,25 +57,26 @@ public class main {
 
                 case 2 -> {
                     
-                    if (occupied > 0 && availableSpace <= totalParking){
+                    if (occupied > 0){
                         
-                        carExitCount ++;
-                        availableSpace = availableSpace + carExitCount;
-                        occupied = occupied - carExitCount;
-
                         System.out.print("Please Entry your total hours : ");
                         double hour = input.nextDouble();
 
-                        fees = (hour * rate);
-                        tempFees =  fees;
-                        totalEarning = totalEarning + tempFees;
+                        if (hour > 0){
 
-                        System.out.println("Total Earning : " + totalEarning);
+                            fees = (hour * rate);
+                            totalEarning = totalEarning + fees;
+                            availableSpace++;
+                            occupied--;
 
-                        
+                            System.out.println("Car exit successfully");
+                            System.out.println("Fees : " + fees);
 
 
-
+                        }
+                        else{
+                            System.out.println("Invalid duration reject karo");
+                        };            
 
                     }
                     else{
