@@ -23,7 +23,8 @@ public class main {
             System.out.println("3. View Parking Status");
             System.out.println("4. View Total Earnings");
             System.out.println("5. Exit Program");
-            int count = 0;
+            int carEntryCount = 0;
+            int carExitCount = 0;
 
           
 
@@ -34,9 +35,9 @@ public class main {
                 case 1 -> {
 
                     if (availableSpace > 0 && occupied <= totalParking){
-                        count ++;
-                        availableSpace = availableSpace - count;
-                        occupied = occupied + count;
+                        carEntryCount ++;
+                        availableSpace = availableSpace - carEntryCount;
+                        occupied = occupied + carEntryCount;
                         
                     }
                     else{
@@ -49,7 +50,18 @@ public class main {
                 }
 
                 case 2 -> {
-                    System.out.println("car exit");
+                    
+                    if (occupied > 0 && availableSpace <= totalParking){
+                        
+                        carExitCount ++;
+                        availableSpace = availableSpace + carExitCount;
+                        occupied = occupied - carExitCount;
+
+                    }
+                    else{
+                        System.out.println("No car parked");
+                    }
+
                 }
 
                 case 3 -> {
