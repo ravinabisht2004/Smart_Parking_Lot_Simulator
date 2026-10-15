@@ -1,6 +1,7 @@
 
 package Program;
 
+import java.time.Duration;
 import java.util.Scanner;
 
 public class main {
@@ -14,6 +15,9 @@ public class main {
         
         int availableSpace = 10;
         int occupied       = 0;
+        double fees           = 0;
+        double totalEarning   = 0;
+        double rate           = 30;
        
 
         while (value) {
@@ -25,6 +29,9 @@ public class main {
             System.out.println("5. Exit Program");
             int carEntryCount = 0;
             int carExitCount = 0;
+            double tempFees;
+            
+            
 
           
 
@@ -57,6 +64,20 @@ public class main {
                         availableSpace = availableSpace + carExitCount;
                         occupied = occupied - carExitCount;
 
+                        System.out.print("Please Entry your total hours : ");
+                        double hour = input.nextDouble();
+
+                        fees = (hour * rate);
+                        tempFees =  fees;
+                        totalEarning = totalEarning + tempFees;
+
+                        System.out.println("Total Earning : " + totalEarning);
+
+                        
+
+
+
+
                     }
                     else{
                         System.out.println("No car parked");
@@ -71,7 +92,7 @@ public class main {
                 }
 
                 case 4 -> {
-                    System.out.println("View Total Earning");
+                    System.out.println("Total Earning : " + totalEarning);
                 }
 
                 case 5 -> {
